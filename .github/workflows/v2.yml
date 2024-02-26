@@ -31,5 +31,4 @@ jobs:
           git add new-file.txt
           git commit -m "Add new file"
           git push origin secondary
-        token: ${{ secrets.MY_PERSONAL_TOKEN }}
 
