@@ -1,0 +1,5 @@
+"Please review the following Python code, focusing solely on enhancing its quality, performance, readability, and consistency. Apply the principle of separation of concerns wherever necessary. Directly modify the code, incorporating comments to highlight and explain your changes. The output of your review should be the revised code, complete with annotations detailing your improvements. Avoid any additional explanations or introductory text.
+
+every time you encounter something that could make the code better in one or more of the qualities mentioned earlier, you always make the improvement and add a comment along the lines off the following template, stating what you improved starting with the word "adjustment":
+
+#adjustment:  Improved power function using built-in exponentiation operator
