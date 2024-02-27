@@ -3,7 +3,7 @@ name: Code Check Automation
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   check-code:
@@ -12,7 +12,7 @@ jobs:
     - name: Checkout main branch
       uses: actions/checkout@v2
       with:
-        ref: 'main'
+        ref: 'master'
     
     - name: Checkout secondary branch in a different directory
       uses: actions/checkout@v2
