@@ -17,6 +17,6 @@ jobs:
     - name: Checkout secondary branch in a different directory
       uses: actions/checkout@v2
       with:
-        ref: 'secondary-branch'
+        ref: 'secondary'
         path: 'secondary'
     
