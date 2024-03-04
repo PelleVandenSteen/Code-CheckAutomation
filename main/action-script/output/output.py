@@ -6,23 +6,21 @@ class ComplexCalculator:
         self.result = 0
 
     def power(self, base, exponent):
-        # Adjustment: Improved power function using built-in exponentiation operator
+        """Calculate and return the power of a base to an exponent."""
         return base ** exponent
 
     def calculate_and_print_square_root(self, num):
+        """Calculate the square root of a number and print the result."""
         self.result = math.sqrt(num)
         print(f"The square root of {num} is {self.result}")
 
     def square(self, x):
-        # Adjustment: Renamed 'sqare' to 'square' for correct spelling
+        """Calculate and return the square of a number."""
         return x * x
 
     def generate_random_numbers(self, count):
-        random_numbers = []
-        for _ in range(count):
-            # Adjustment: Shortened the loop variable name from 'i' to '_' since it's not used
-            random_numbers.append(random.randint(1, 100))
+        """Generate a list of random numbers within a specified range."""
+        random_numbers = [random.randint(1, 100) for _ in range(count)]
         return random_numbers
 
-
-#Adjustment-counter: 3
+#Adjustment-counter: 4
