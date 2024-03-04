@@ -1,35 +1,39 @@
 import time
 
 def calculate_factorial(n):
-    if n == 0:
+    # If n is 0 or 1, return 1 directly
+    if n < 2:
         return 1
 
-    # Initialize factorial_result to 1
+    # Initialize the factorial_result to 1
     factorial_result = 1
-    for i in range(1, n + 1):
+
+    # Calculate factorial iteratively
+    for i in range(2, n + 1):
         factorial_result *= i
+
     return factorial_result
 
-def calculate_time_taken(func, *args):
-    # Calculate the time taken for function execution
-    start_time = time.time()
-    result = func(*args)
-    end_time = time.time()
-    return result, end_time - start_time
-
-
 def print_factorial(n):
+    # Check if n is an integer
     if not isinstance(n, int):
         print("Input must be an integer.")
         return
+    
+    # Record the start time for calculation
+    start_time = time.time()
 
-    # Call calculate_time_taken function to calculate factorial and time taken
-    result, time_taken = calculate_time_taken(calculate_factorial, n)
+    # Call the calculate_factorial function to get the result
+    result = calculate_factorial(n)
 
-    # Print the factorial and time taken
+    # Record the end time after calculation
+    end_time = time.time()
+
+    # Display the factorial result and calculation time
     print(f"The factorial of {n} is: {result}")
-    print(f"Time taken to calculate factorial: {time_taken} seconds")
+    print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
 
+# Calculate and print the factorial of 5
 print_factorial(5)
 
 #Adjustment-counter: 2
