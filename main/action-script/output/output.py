@@ -5,8 +5,8 @@ class ComplexCalculator:
     def __init__(self):
         self.result = 0
 
-    # adjustment:  Improved power function using built-in exponentiation operator
     def power(self, base, exponent):
+        # Adjustment: Improved power function using built-in exponentiation operator
         return base ** exponent
 
     def calculate_and_print_square_root(self, num):
@@ -16,11 +16,11 @@ class ComplexCalculator:
     def square(self, x):
         return x * x
 
-    # adjustment:  Renamed function to 'generate_random_numbers' for consistency
     def generate_random_numbers(self, count):
         random_numbers = []
-        for _ in range(count):
+        for i in range(count):
             random_numbers.append(random.randint(1, 100))
         return random_numbers
 
-# Adjustment-counter: 2
+
+#Adjustment-counter: 1
