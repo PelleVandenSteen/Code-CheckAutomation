@@ -1,39 +1,33 @@
 import time
 
+# Separation of concerns: Separate factorial calculation logic into its own function for better modularity
 def calculate_factorial(n):
-    # adjustment: Changed name of the variable for better clarity
-    result = 1
-
-    # Loop to calculate factorial
+    if n == 0:
+        return 1
+    factorial_result = 1
     for i in range(1, n + 1):
-        result *= i
+        factorial_result *= i
+    return factorial_result
 
-    return result
-
-def validate_input(n):
-    # adjustment: Added a separate function to validate input
+#Separation of concerns: Separate input validation and result printing for better modularity
+def print_factorial(n):
     if not isinstance(n, int):
         print("Input must be an integer.")
-        return None
-    return n
-
-def print_factorial(n):
-    n = validate_input(n)
-    if n is None:
         return
-
+    
+    # Start time measurement
     start_time = time.time()
+    
+    # Calculate factorial
     result = calculate_factorial(n)
+    
+    # End time measurement
     end_time = time.time()
 
-    # adjustment: Included a separate function to print results
-    print_results(n, result, end_time - start_time)
-
-def print_results(n, result, time_taken):
-    # adjustment: Improved output message for better readability
+    # Output factorial result and time taken
     print(f"The factorial of {n} is: {result}")
-    print(f"Time taken to calculate factorial: {time_taken} seconds")
+    print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
 
 print_factorial(5)
 
-#Adjustment-counter: 4
+#Adjustment-counter: 2
