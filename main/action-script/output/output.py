@@ -1,47 +1,30 @@
 import time
 
 def calculate_factorial(n):
-    # Adjustment: Added docstring to describe the function
-    """
-    Calculate the factorial of a given number.
-
-    Arguments:
-    n -- an integer
-
-    Returns:
-    factorial_result -- the factorial of the input number
-    """
+    # improvement: added check for negative numbers
+    if n < 0:
+        return "Factorial is not defined for negative numbers"
     if n == 0:
         return 1
-    
     factorial_result = 1
     for i in range(1, n + 1):
         factorial_result *= i
-    
     return factorial_result
 
-def print_factorial(n):
-    # Adjustment: Added docstring to describe the function
-    """
-    Print the factorial of a given number and the time taken to calculate it.
-
-    Arguments:
-    n -- an integer
-
-    Prints:
-    The factorial of the input number
-    Time taken to calculate the factorial
-    """
-    if not isinstance(n, int):
-        print("Input must be an integer.")
-        return
-    
+def calculate_and_measure_time(func, arg):
     start_time = time.time()
-    result = calculate_factorial(n)
+    result = func(arg)
     end_time = time.time()
+    return result, end_time - start_time
 
+def print_factorial(n):
+    # improvement: separated concerns by moving time measurement to a separate function
+    result, time_taken = calculate_and_measure_time(calculate_factorial, n)
+
+    # improvement: enhanced readability by using f-string for output formatting
     print(f"The factorial of {n} is: {result}")
-    print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
+    print(f"Time taken to calculate factorial: {time_taken} seconds")
 
-# Adjustment-counter: 2
+print_factorial(5)
 
+#Adjustment-counter: 3
