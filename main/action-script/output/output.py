@@ -1,29 +1,31 @@
 import time
 
 def calculate_factorial(n):
-    # Improvement: Use a recursive function for factorial calculation
+    # Separating concerns by moving the validation to a separate function
     if n == 0:
         return 1
-    return n * calculate_factorial(n - 1)
+    factorial_result = 1
+    for i in range(1, n + 1):
+        factorial_result *= i
+    return factorial_result
 
-def measure_time_taken(func, *args):
-    start_time = time.time()
-    result = func(*args)
-    end_time = time.time()
-    return result, end_time - start_time
-
-def print_factorial(n):
+def validate_input(n):
+    # Adjustment: Improved variable name for clarity
     if not isinstance(n, int):
         print("Input must be an integer.")
-        return
+        return False
+    return True
 
-    result, time_taken = measure_time_taken(calculate_factorial, n)
+def print_factorial(n):
+    if not validate_input(n):
+        return
+    start_time = time.time()
+    result = calculate_factorial(n)
+    end_time = time.time()
 
     print(f"The factorial of {n} is: {result}")
-    print(f"Time taken to calculate factorial: {time_taken} seconds")
+    print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
 
 print_factorial(5)
 
-
 #Adjustment-counter: 2
-```
