@@ -1,0 +1,38 @@
+name: Python Code Check and Commit Output
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  code-check-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        ref: 'code_check'
+        token: ${{ secrets.MY_PERSONAL_TOKEN }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        pip install requests pyyaml python-dotenv
+
+    - name: Run Code Check Script
+      run: python main/action-script/main.py
+      env:
+        EDENAI_PRODUCTION_KEY: ${{ secrets.EDENAI_PRODUCTION_KEY }}
+
+    - name: Commit and Push Output File
+      run: |
+        git config --global user.name 'GPT 3.5'
+        git config --global user.email 'your.email@example.com'
+        git add output/output.py
+        git commit -m "Automatically update output file"
+        git push
