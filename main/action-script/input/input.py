@@ -1,22 +1,25 @@
-import time
+import random
+import math
 
-def calculate_factorial(n):
-    if n == 0:
-        return 1
-    factorial_result = 1
-    for i in range(1, n + 1):
-        factorial_result *= i
-    return factorial_result
+class ComplexCalculator:
+    def __init__(self):
+        self.result = 0
 
-def print_factorial(n):
-    if not isinstance(n, int):
-        print("Input must be an integer.")
-        return
-    start_time = time.time()
-    result = calculate_factorial(n)
-    end_time = time.time()
+    def power(self, base, exponent):
+        if exponent == 0:
+            return 1
+        else:
+            return base * self.power(base, exponent - 1)
 
-    print(f"The factorial of {n} is: {result}")
-    print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
+    def calculate_and_print_square_root(self, num):
+        self.result = math.sqrt(num)
+        print(f"The square root of {num} is {self.result}")
 
-print_factorial(5)
+    def sqare(self, x):
+        return x * x
+
+    def generate_random_numbers(self, count):
+        random_numbers = []
+        for i in range(count):
+            random_numbers.append(random.randint(1, 100))
+        return random_numbers
