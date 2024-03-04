@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - '!main/action-script/output/**'
 
 jobs:
   code-check-and-commit:
