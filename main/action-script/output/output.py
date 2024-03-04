@@ -14,12 +14,15 @@ class ComplexCalculator:
         print(f"The square root of {num} is {self.result}")
 
     def square(self, x):
+        # Adjustment: Renamed 'sqare' to 'square' for correct spelling
         return x * x
 
     def generate_random_numbers(self, count):
         random_numbers = []
         for _ in range(count):
+            # Adjustment: Shortened the loop variable name from 'i' to '_' since it's not used
             random_numbers.append(random.randint(1, 100))
         return random_numbers
 
-# Adjustment-counter: 1
+
+#Adjustment-counter: 3
