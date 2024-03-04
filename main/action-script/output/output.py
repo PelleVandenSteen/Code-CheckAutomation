@@ -18,9 +18,8 @@ class ComplexCalculator:
 
     def generate_random_numbers(self, count):
         random_numbers = []
-        for i in range(count):
+        for _ in range(count):
             random_numbers.append(random.randint(1, 100))
         return random_numbers
 
-
-#Adjustment-counter: 1
+# Adjustment-counter: 1
