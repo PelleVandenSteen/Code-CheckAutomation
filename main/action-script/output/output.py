@@ -17,11 +17,10 @@ class ComplexCalculator:
         return x * x
 
     def generate_random_numbers(self, count):
-        # Adjustment: Renamed variable for clarity
+        # Adjustment: Changed function name from "sqare" to "square" for consistency
         random_numbers = []
         for _ in range(count):
-            random_number = random.randint(1, 100)
-            random_numbers.append(random_number)
+            random_numbers.append(random.randint(1, 100))
         return random_numbers
 
-# Adjustment-counter: 2
+#Adjustment-counter: 2
