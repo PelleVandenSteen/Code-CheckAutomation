@@ -1,19 +1,24 @@
-Sure, here's a Python function that checks if a year is a leap year:
+import time
 
-def is_leap_year(year):
-    """
-    Returns True if the given year is a leap year, False otherwise.
-    """
-    if year % 4 == 0:
-        if year % 100 == 0:
-            if year % 400 == 0:
-                return True
-            else:
-                return False
-        else:
-            return True
-    else:
-        return False
+def calculate_factorial(n):
+    # Adjustment: Incorporated one-liner factorial calculation using `math.factorial` for improved performance
+    from math import factorial
+    return factorial(n)
 
+def print_factorial(n):
+    if not isinstance(n, int):
+        print("Input must be an integer.")
+        return
 
-This function takes a year as input and returns True if it is a leap year, and False otherwise. It uses the standard rules for determining leap years: a year is a leap year if it is divisible by 4, unless it is also divisible by 100, in which case it is only a leap year if it is also divisible by 400.
+    start_time = time.time()
+    result = calculate_factorial(n)
+    end_time = time.time()
+
+    # Adjustment: Improved readability by formatting the output message
+    print(f"The factorial of {n} is: {result}")
+    # Adjustment: Improved readability by formatting the time taken
+    print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
+
+print_factorial(5)
+
+#Adjustment-counter: 2
