@@ -5,8 +5,8 @@ on:
     branches:
       - master
     paths:
+      - 'main/action-script/**/*.py'
       - '!main/action-script/output/**'
-
 jobs:
   code-check-and-commit:
     runs-on: ubuntu-latest
