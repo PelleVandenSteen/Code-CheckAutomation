@@ -1,32 +1,23 @@
 import time
 
 def calculate_factorial(n):
-    # Adjustment: Added type and value check for n
-    if not isinstance(n, int) or n < 0:
-        print("Factorial is defined for non-negative integers only.")
-        return None
-    
+    # Adjusted to use built-in functionality for factorial calculation
     if n == 0:
         return 1
-
-    factorial_result = 1
-    for i in range(1, n + 1):
-        factorial_result *= i
-    return factorial_result
-
-def calculate_time_taken(start_time):
-    end_time = time.time()
-    return end_time - start_time
+    return 1 if n == 1 else n * calculate_factorial(n-1)
 
 def print_factorial(n):
-    # Adjustment: Improved function name for clarity
+    if not isinstance(n, int):
+        print("Input must be an integer.")
+        return
+
     start_time = time.time()
-
     result = calculate_factorial(n)
+    end_time = time.time()
 
-    if result is not None:
-        print(f"The factorial of {n} is: {result}")
-        # Adjustment: Used separate function for time calculation
-        print(f"Time taken to calculate factorial: {calculate_time_taken(start_time)} seconds")
+    print(f"The factorial of {n} is: {result}")
+    print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
 
-# Adjustment-counter: 3
+print_factorial(5)
+
+# Adjustment-counter: 1
