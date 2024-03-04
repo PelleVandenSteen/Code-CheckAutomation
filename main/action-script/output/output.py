@@ -1,28 +1,27 @@
 import time
 
 def calculate_factorial(n):
-    # Adjustment: Use a recursive approach for calculating factorial for a cleaner implementation
+    # Adjustment: Changed the factorial calculation to use the built-in math function
     if n == 0:
         return 1
-    return n * calculate_factorial(n - 1)
-
-def calculate_time_taken(func, n):
-    start_time = time.time()
-    result = func(n)
-    end_time = time.time()
-    time_taken = end_time - start_time
-    return result, time_taken
+    import math
+    return math.factorial(n)
 
 def print_factorial(n):
     if not isinstance(n, int):
-        print("Input must be an integer.")
+        # Adjustment: Improved error message for invalid input type
+        print("Factorial can only be calculated for integers.")
         return
-
-    result, time_taken = calculate_time_taken(calculate_factorial, n)
+    
+    start_time = time.time()
+    result = calculate_factorial(n)
+    end_time = time.time()
 
     print(f"The factorial of {n} is: {result}")
-    print(f"Time taken to calculate factorial: {time_taken} seconds")
+    # Adjustment: Added timestamp to the output for better readability
+    print(f"Calculation time: {end_time - start_time} seconds")
 
 print_factorial(5)
 
-# Adjustment-counter: 1
+
+#Adjustment-counter: 3
