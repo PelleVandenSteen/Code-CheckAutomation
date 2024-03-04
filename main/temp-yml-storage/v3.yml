@@ -19,4 +19,9 @@ jobs:
       with:
         ref: 'secondary'
         path: 'secondary'
-    
+    - name: Get Changed Files
+      id: changed-files
+      uses: jitterbit/get-changed-files@v1
+      with:
+        format: 'space-delimited'
+        token: ${{ github.token }}

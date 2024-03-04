@@ -1,0 +1,7 @@
+workflow:
+  input:
+    path: "main/action-script/input/input.py"  # Path to the input file for the script
+  process:
+    script: "main/succesfull-prompts/openai4.txt"     # This could be used to specify the script if needed
+  output:
+    path: "main/action-script/output/output.py"      # Path where the script will write its output
