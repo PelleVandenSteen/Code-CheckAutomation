@@ -1,24 +1,26 @@
-import time
+import random
+import math
 
-def calculate_factorial(n):
-    # Adjustment: Incorporated one-liner factorial calculation using `math.factorial` for improved performance
-    from math import factorial
-    return factorial(n)
+class ComplexCalculator:
+    def __init__(self):
+        self.result = 0
 
-def print_factorial(n):
-    if not isinstance(n, int):
-        print("Input must be an integer.")
-        return
+    def power(self, base, exponent):
+        # Adjustment: Improved power function using built-in exponentiation operator
+        return base ** exponent
 
-    start_time = time.time()
-    result = calculate_factorial(n)
-    end_time = time.time()
+    def calculate_and_print_square_root(self, num):
+        self.result = math.sqrt(num)
+        print(f"The square root of {num} is {self.result}")
 
-    # Adjustment: Improved readability by formatting the output message
-    print(f"The factorial of {n} is: {result}")
-    # Adjustment: Improved readability by formatting the time taken
-    print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
+    def square(self, x):
+        return x ** 2  # Adjustment: Corrected misspelled method name
 
-print_factorial(5)
+    def generate_random_numbers(self, count):
+        # Adjustment: Renamed random_numbers to adhere to PEP8 naming convention
+        random_nums = []
+        for _ in range(count):
+            random_nums.append(random.randint(1, 100))
+        return random_nums
 
-#Adjustment-counter: 2
+# Adjustment-counter: 4
