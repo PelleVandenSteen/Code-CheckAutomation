@@ -1,8 +1,7 @@
 import time
 
+# Create a separate function to calculate factorial to adhere to separation of concerns principle
 def calculate_factorial(n):
-    # Adjustment: Added type hint for return type and parameter
-    # Calculate and return the factorial of a number n
     if n == 0:
         return 1
     factorial_result = 1
@@ -10,9 +9,8 @@ def calculate_factorial(n):
         factorial_result *= i
     return factorial_result
 
+# Create a separate function to print factorial result for separation of concerns
 def print_factorial(n):
-    # Adjustment: Added type hint for the parameter
-    # Print the factorial of the input number n and the time taken to calculate it
     if not isinstance(n, int):
         print("Input must be an integer.")
         return
@@ -20,9 +18,15 @@ def print_factorial(n):
     result = calculate_factorial(n)
     end_time = time.time()
 
+    # Print the factorial result along with the time taken for calculation
     print(f"The factorial of {n} is: {result}")
     print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
 
+# Call the print_factorial function with input 5
 print_factorial(5)
 
+
+# Adjustments made: 2
+
 # Adjustment-counter: 2
+```
