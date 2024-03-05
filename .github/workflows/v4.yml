@@ -1,6 +1,7 @@
 name: Python Code Check and Commit Output
 
 on:
+  workflow-dispatch:
   push:
     branches:
       - master
