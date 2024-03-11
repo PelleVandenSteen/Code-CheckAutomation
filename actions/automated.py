@@ -42,8 +42,12 @@ def process_file(file_path):
     content = content.replace('```python\n', '', 1)  
     content = content.replace('```', '', 1)
 
+    # Adjusted part: Create the output directory if it doesn't exist
+    output_dir = "main/action-script/output/"
+    os.makedirs(output_dir, exist_ok=True)
+
     # Define the output file path based on the input file name
-    output_file_path = os.path.join("main/action-script/output/", os.path.basename(file_path))
+    output_file_path = os.path.join(output_dir, os.path.basename(file_path))
 
     # Save the generated content to the output file
     with open(output_file_path, 'w') as file:
