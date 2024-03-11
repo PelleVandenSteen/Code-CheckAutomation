@@ -1,4 +1,4 @@
-name: Python Code Check and Commit Output
+name: Pushed file check automation
 
 on:
   workflow_dispatch:
