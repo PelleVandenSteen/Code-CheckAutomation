@@ -1,0 +1,57 @@
+name: Python Code Check and Commit Output
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - 'main/action-script/**/*.py'
+      - '!main/action-script/output/**'
+
+jobs:
+  code-check-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: 'master'
+          token: ${{ secrets.MY_PERSONAL_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          pip install requests pyyaml python-dotenv
+
+      - name: Detect Changed Files
+        id: files
+        uses: tj-actions/changed-files@v42
+        with:
+          files: |
+            main/action-script/**/*.py
+            !main/action-script/output/**
+
+      - name: Run Code Check Script for Each Changed File
+        run: |
+          CHANGED_FILES="${{ steps.files.outputs.all_changed_files }}"
+          for FILE in $CHANGED_FILES; do
+            if [[ $FILE == actions/* ]]; then
+              python actions/automated.py $FILE
+            fi
+          done
+        env:
+          EDENAI_PRODUCTION_KEY: ${{ secrets.EDENAI_PRODUCTION_KEY }}
+
+      - name: Commit and Push Output File
+        run: |
+          git config --global user.name 'GPT 3.5'
+          git config --global user.email 'your.email@example.com'
+          git add main/action-script/output/*.py
+          git commit -m "Automatically update output file"
+          git push
