@@ -41,7 +41,7 @@ jobs:
         run: |
           CHANGED_FILES="${{ steps.files.outputs.all_changed_files }}"
           for FILE in $CHANGED_FILES; do
-            if [[ $FILE == actions/* ]]; then
+            if [[ $FILE == main/action-script/input/* ]]; then
               python actions/automated.py $FILE
             fi
           done
