@@ -1,22 +1,25 @@
-import time
+function calc(operation, num1, num2) {
+    if (operation == 'add') {
+        return num1 + num2;
+    } else if (operation == 'subtract') {
+        return num1 - num2;
+    } else if (operation == 'multiply') {
+        return num1 * num2;
+    } else if (operation === 'divide') {
+        if (num2 === 0) {
+            console.log('Cannot divide by zero.');
+            return undefined;
+        }
+        return num1 / num2;
+    } else {
+        console.log('Invalid operation');
+        return NaN;
+    }
+}
 
-def calculate_factorial(n):
-    if n == 0:
-        return 1
-    factorial_result = 1
-    for i in range(1, n + 1):
-        factorial_result *= i
-    return factorial_result
 
-def print_factorial(n):
-    if not isinstance(n, int):
-        print("Input must be an integer.")
-        return
-    start_time = time.time()
-    result = calculate_factorial(n)
-    end_time = time.time()
+var result1 = calc('add', 5, 3);
+console.log('Result:', result1);
+var result2 = calc('divide', 10, 0); 
+console.log('Result:', result2);
 
-    print(f"The factorial of {n} is: {result}")
-    print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
-#we changin stuff, even more lmao
-print_factorial(5)
