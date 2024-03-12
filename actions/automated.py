@@ -46,6 +46,8 @@ def process_file(file_path):
     output_dir = "main/action-script/output/"
     os.makedirs(output_dir, exist_ok=True)
 
+    print(os.getcwd())
+
     # Define the output file path based on the input file name
     output_file_path = os.path.join(output_dir, os.path.basename(file_path))
 
