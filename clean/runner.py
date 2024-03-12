@@ -23,8 +23,7 @@ class Runner:
 
         wrapper = GenAIWrapper(self.model)
         content = wrapper.call_ai_api(python_file_content, prompt_content)
-        print(2)
-        print(content)
+
 
         Output.write_output(content, output_file_path)
 

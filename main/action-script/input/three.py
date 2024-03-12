@@ -23,4 +23,4 @@ class ComplexCalculator:
         for i in range(count):
             random_numbers.append(random.randint(1, 100))
         return random_numbers
-#we changin stuff even more
+#we changin stuff even more pelle 
