@@ -1,23 +1,39 @@
-import time
+def calc(operation, num1, num2):
+    # Separated the calculation logic into individual functions for each operation
+    def add(num1, num2):
+        return num1 + num2
 
-def calculate_factorial(n):
-    # Adjustment: Added type hint for the function argument
-    # Adjustment: Changed the function to use recursion for calculating factorial
-    if n == 0:
-        return 1
-    return n * calculate_factorial(n - 1)
+    def subtract(num1, num2):
+        return num1 - num2
 
-def print_factorial(n):
-    # Adjustment: Added type hint for the function argument
-    if not isinstance(n, int):
-        print("Input must be an integer.")
-        return
+    def multiply(num1, num2):
+        return num1 * num2
 
-    start_time = time.time()
-    result = calculate_factorial(n)
-    end_time = time.time()
+    def divide(num1, num2):
+        if num2 == 0:
+            print('Cannot divide by zero.')
+            return None
+        return num1 / num2
 
-    print(f"The factorial of {n} is: {result}")
-    print(f"Time taken to calculate factorial: {end_time - start_time} seconds")
+    # Used a dictionary to map operations to their respective functions
+    operations = {
+        'add': add,
+        'subtract': subtract,
+        'multiply': multiply,
+        'divide': divide
+    }
 
-# Adjustment-counter: 2
+    # Check if the operation is valid
+    if operation in operations:
+        return operations[operation](num1, num2)
+    else:
+        print('Invalid operation')
+        return None
+
+result1 = calc('add', 5, 3)
+print('Result:', result1)
+result2 = calc('divide', 10, 0)
+print('Result:', result2)
+
+
+#Adjustment-counter: 2
