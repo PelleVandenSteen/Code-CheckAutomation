@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests pyyaml python-dotenv
+          pip install -r /versioncontrol/requirements.txt
 
       - name: Detect Changed Files
         id: files
